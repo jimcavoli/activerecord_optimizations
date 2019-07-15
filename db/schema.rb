@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_134836) do
     t.string "city"
     t.string "state"
     t.string "zip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_profile_id"], name: "index_addresses_on_user_profile_id"
   end
 
@@ -54,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_134836) do
     t.string "name"
     t.text "bio"
     t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
 

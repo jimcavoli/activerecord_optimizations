@@ -5,6 +5,12 @@ require:
 AllCops:
   TargetRubyVersion: 2.6
   TargetRailsVersion: 5.2.3
+  Exclude:
+    - db/schema.rb
+
+Metrics:
+  Exclude:
+    - db/migrate/*.rb
 
 Metrics/LineLength:
   Max: 120

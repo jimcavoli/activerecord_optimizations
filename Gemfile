@@ -8,6 +8,7 @@ ruby '2.6.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'coffee-rails', '~> 4.2'
+gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'

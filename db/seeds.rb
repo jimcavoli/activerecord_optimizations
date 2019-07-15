@@ -4,13 +4,13 @@ require 'securerandom'
 
 def create_complete_user!(**opts)
   user = User.create(
-      email: opts[:email] || Faker::Internet.unique.email,
-      password: opts[:password] || SecureRandom.hex
+    email: opts[:email] || Faker::Internet.unique.email,
+    password: opts[:password] || SecureRandom.hex
   )
 
   address = Address.create(
     address1: Faker::Address.street_address,
-    address2: rand(1..3) % 2 == 0 ? Faker::Address.secondary_address : nil,
+    address2: rand(1..3).even? ? Faker::Address.secondary_address : nil,
     city: Faker::Address.city,
     state: Faker::Address.state,
     zip: Faker::Address.zip
@@ -19,9 +19,9 @@ def create_complete_user!(**opts)
   address.save
 
   user.user_profile = UserProfile.create(
-      name: opts[:name] || Faker::Name.name,
-      bio: Faker::Lorem.paragraph,
-      address: address
+    name: opts[:name] || Faker::Name.name,
+    bio: Faker::Lorem.paragraph,
+    address: address
   )
 
   user.tag_list = Faker::Lorem.words(opts[:tag_count] || rand(0..10), true).join(',')

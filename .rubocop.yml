@@ -7,10 +7,12 @@ AllCops:
   TargetRailsVersion: 5.2.3
   Exclude:
     - db/schema.rb
+    - db/migrate/*.acts_as_taggable_on_engine.rb
 
 Metrics:
   Exclude:
     - db/migrate/*.rb
+    - db/seeds.rb
 
 Metrics/LineLength:
   Max: 120

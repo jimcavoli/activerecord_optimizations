@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
   acts_as_taggable
 
-  has_one :user_profile
+  has_one :user_profile, dependent: :destroy
   has_one :address, through: :user_profile
 end

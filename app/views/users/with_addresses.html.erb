@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Address</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%- @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td>
+        <p>
+          <%= user.address.address1 %><br>
+          <%= user.address.address2 %><br>
+          <%= user.address.city %>, <%= user.address.state %> <%= user.address.zip %>
+        </p>
+      </td>
+    </tr>
+  <%- end %>
+  </tbody>
+</table>

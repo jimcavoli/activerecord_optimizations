@@ -5,17 +5,21 @@
     </div>
   </div>
   <hr>
-  <!-- Example row of columns -->
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <h3><kbd>User.all</kbd></h3>
       <p>The most basic, naïve example possible.</p>
       <p><a class="btn btn-secondary" href="/simple" role="button">Run example »</a></p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <h3><kbd>User.all.find_each</kbd></h3>
       <p>A basic example that just uses <kbd>find_each</kbd>. This is intended to demonstrate minimal change from the naked <kbd>User.all</kbd> as a sort of counter-example to certain expectations.</p>
       <p><a class="btn btn-secondary" href="/find_each" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3><kbd>User.all.pluck</kbd></h3>
+      <p>A basic example that just uses <kbd>pluck</kbd>. This allows <kbd>User.all</kbd> to be restricted to just the fields of interest, rather than the complete, long list of fields. Note the reworked view.</p>
+      <p><a class="btn btn-secondary" href="/pluck" role="button">Run example »</a></p>
     </div>
   </div>
   <div class="row">
@@ -24,7 +28,6 @@
     </div>
   </div>
   <hr>
-  <!-- Example row of columns -->
   <div class="row">
     <div class="col-md-4">
       <h3><kbd>User.all</kbd></h3>
@@ -40,6 +43,77 @@
       <h3><kbd>User.all</kbd> with view appending <kbd>.includes(<br>:user_profile)</kbd></h3>
       <p>This example demonstrates the ability to refine the SQL from the view, intended to show the power of carefully retaining <kbd>ActiveRecord::Relation</kbd> objects as far through the stack as possible.</p>
       <p><a class="btn btn-secondary" href="/profiles_included_from_view" role="button">Run example »</a></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Join-Through Examples</h2>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Explicit, simple join-through <kbd>User.all</kbd></h3>
+      <p>Shows each user's address from their associated profile.</p>
+      <p><a class="btn btn-secondary" href="/profiles_addresses_explicit" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Simple join-through <kbd>User.all</kbd></h3>
+      <p>Shows each user's address from their associated profile using the <kbd>:through</kbd> relation name.</p>
+      <p><a class="btn btn-secondary" href="/profiles_addresses" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Simple join-through <kbd>User.all.includes(<br>:user_profile)</kbd></h3>
+      <p>Revisits the profile inclusion example while just displaying the profile's associated address.</p>
+      <p><a class="btn btn-secondary" href="/profiles_included" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Full join-through <kbd>User.all.includes(<br>user_profile: [:address])</kbd></h3>
+      <p>Tries to use <kbd>.includes</kbd> to bring in the profile and the profile's associated address more efficiently.</p>
+      <p><a class="btn btn-secondary" href="/profiles_addresses_included" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Revised simple join-through <kbd>User.all.includes(<br>:address)</kbd></h3>
+      <p>Revisits the profile inclusion example while just displaying the profile's associated address, named in the inclusion.</p>
+      <p><a class="btn btn-secondary" href="/profiles_included_revised" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Pivoted join-through <kbd>UserProfile.all<br>.includes(:user, <br>:address)</kbd></h3>
+      <p>Tries to use <kbd>.includes</kbd> to bring in the profile and the profile's associated address more efficiently.</p>
+      <p><a class="btn btn-secondary" href="/profiles_addresses_aim_center" role="button">Run example »</a></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Polymorphic Examples</h2>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+      <h3><kbd>User.all</kbd></h3>
+      <p>The simple approach, with the view render now calling the Polymorphic <kbd>.tags</kbd> association provided by Acts As Taggable On.</p>
+      <p><a class="btn btn-secondary" href="/polymorphic" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3><kbd>User.all.includes(<br>:tags)</kbd></h3>
+      <p>Pre-emptively including there users' tags from the controller's loading query.</p>
+      <p><a class="btn btn-secondary" href="/polymorphic_includes" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Polymorphic nesting</h3>
+      <p>This example demonstrates naïvely-deeper navigation of multiple (nested) associations (retains <kbd>User.all.includes(:tags)</kbd> though).</p>
+      <p><a class="btn btn-secondary" href="/polymorphic_nesting" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Polymorphic nesting with inclusion</h3>
+      <p>This example demonstrates an attempt to pull back multiple (nested) associations using only <kbd>includes</kbd>.</p>
+      <p><a class="btn btn-secondary" href="/polymorphic_nesting_includes" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3>Polymorphic nesting with proper naming</h3>
+      <p>This example demonstrates an attempt to pull back multiple (nested) associations using matching association names (specifically <kbd>:through</kbd> again) to the view.</p>
+      <p><a class="btn btn-secondary" href="/polymorphic_nesting_names" role="button">Run example »</a></p>
     </div>
   </div>
 </div>

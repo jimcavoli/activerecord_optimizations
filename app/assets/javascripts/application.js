@@ -18,6 +18,10 @@
 //= require_tree .
 
 function showProfiling() {
+  if(window.location.pathname === "/") {
+    return;
+  }
+
   $('.profiler-results > .profiler-result > .profiler-button').first().click();
   setTimeout(function() {
     $('a.profiler-toggle-trivial:visible:contains("show trivial")').click();

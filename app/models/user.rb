@@ -6,5 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable, :lockable,
          :trackable
 
+  acts_as_taggable
+
   has_one :user_profile
+  has_one :address, through: :user_profile
 end

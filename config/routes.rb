@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   root to: 'application#index'
 
   mount ActiveRecordProfiler::Engine, at: 'activerecord_profiler'
+  mount PgHero::Engine, at: 'pghero'
 end

@@ -16,3 +16,16 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+function showProfiling() {
+  $('.profiler-results > .profiler-result > .profiler-button').first().click();
+  setTimeout(function() {
+    $('a.profiler-toggle-trivial:visible:contains("show trivial")').click();
+  },50);
+}
+
+$(document).ready(function() {
+  setTimeout(function() {
+    showProfiling();
+  }, 500);
+});

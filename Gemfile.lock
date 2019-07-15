@@ -24,6 +24,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active-record-profiler (2.0.0)
+      jquery-rails
+      rails (>= 5.0)
     activejob (5.2.3)
       activesupport (= 5.2.3)
       globalid (>= 0.3.6)
@@ -73,6 +76,8 @@ GEM
       warden (~> 1.2.3)
     erubi (1.8.0)
     execjs (2.7.0)
+    faker (1.9.6)
+      i18n (>= 0.7)
     ffi (1.11.1)
     flamegraph (0.9.5)
     globalid (0.4.2)
@@ -218,11 +223,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active-record-profiler
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.6, >= 4.6.2)
+  faker (~> 1.9, >= 1.9.6)
   flamegraph
   jquery-rails
   listen (>= 3.0.5, < 3.2)

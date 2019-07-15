@@ -2,10 +2,13 @@
 
 require 'securerandom'
 
-puts 'Creating demo user (user@example.com / password)...'
-User.create email: 'user@example.com', password: 'password'
+puts 'Creating demo user (user@example.com / password) with profile...'
 
-puts 'Creating 2000 users...'
-2000.times do |index|
-  User.create email: "user#{index}@example.com", password: SecureRandom.hex
+demo_user = User.create email: 'user@example.com', password: 'password'
+UserProfile.create user: demo_user, name: 'Demo User', bio: Faker::Lorem.paragraph
+
+puts 'Creating 2000 users with profiles...'
+2000.times do
+  user = User.create email: Faker::Internet.unique.email, password: SecureRandom.hex
+  UserProfile.create user: user, name: Faker::Name.name, bio: Faker::Lorem.paragraph
 end

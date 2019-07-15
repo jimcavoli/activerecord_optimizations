@@ -5,10 +5,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'active-record-profiler'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'faker', '~> 1.9', '>= 1.9.6'
 gem 'flamegraph'
 gem 'jquery-rails'
 gem 'memory_profiler'

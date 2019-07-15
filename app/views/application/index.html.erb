@@ -18,4 +18,28 @@
       <p><a class="btn btn-secondary" href="/find_each" role="button">Run example »</a></p>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Single-Join Examples</h2>
+    </div>
+  </div>
+  <hr>
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h3><kbd>User.all</kbd></h3>
+      <p>The simple approach, with the view render now calling through the <kbd>.user_profile</kbd> association.</p>
+      <p><a class="btn btn-secondary" href="/with_profiles" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3><kbd>User.all.includes(<br>:user_profile)</kbd></h3>
+      <p>Pre-emptively including there users' profile from the controller's loading query.</p>
+      <p><a class="btn btn-secondary" href="/with_profiles_included" role="button">Run example »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3><kbd>User.all</kbd> with view appending <kbd>.includes(<br>:user_profile)</kbd></h3>
+      <p>This example demonstrates the ability to refine the SQL from the view, intended to show the power of carefully retaining <kbd>ActiveRecord::Relation</kbd> objects as far through the stack as possible.</p>
+      <p><a class="btn btn-secondary" href="/profiles_included_from_view" role="button">Run example »</a></p>
+    </div>
+  </div>
 </div>

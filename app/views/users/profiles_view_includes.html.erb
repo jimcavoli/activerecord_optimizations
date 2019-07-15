@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Bio</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%- @users.includes(:user_profile).each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.user_profile.name %></td>
+      <td><%= user.user_profile.bio %></td>
+    </tr>
+  <%- end %>
+  </tbody>
+</table>
